@@ -8,6 +8,6 @@ class Project extends Model
 {
     protected  $guarded = [];
     public function path(){
-        return "/project/{$this->id}";
+        return "/projects/{$this->id}";
     }
 }

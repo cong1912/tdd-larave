@@ -8,12 +8,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h3> bỉbord</h3>
-<ul>
-
-        <li>{{$project->title}}</li>
-    <li>{{$project->description}}</li>
-
-</ul>
+ <h1>showw</h1>
+ <li>{{$project->title}}</li>
+ <li>{{$project->description}}</li>
 </body>
 </html>

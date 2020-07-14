@@ -12,11 +12,21 @@ class ProjectsController extends Controller
         return view('projects.index',compact('projects'));
     }
     public function store(){
+
+
         //validation
-        $attributes=request()->validate(['title'=>'required','description'=>'required']);
-        //persist
-        \App\Project::create($attributes);
-        //redirect
+        $attributes=request()->validate([
+            'title'=>'required',
+            'description'=>'required',
+
+        ]);
+
+
+
+        auth()->user()->projects()->create($attributes);
+
+
+
         return redirect('/projects');
     }
     public function show(\App\Project $project){

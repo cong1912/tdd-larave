@@ -10,9 +10,11 @@
 <body>
     <h3> bỉbord</h3>
 <ul>
-    @foreach($projects as $projects)
-        <li>{{$projects->title}}</li>
-    @endforeach
+    @forelse($projects as $projects)
+        <li> <a href="{{$projects->path()}}">{{$projects->title}}</a></li>
+        <li>{{$projects->description}}</li>
+        @empty <li>no projects yet</li>
+    @endforelse
 </ul>
 </body>
 </html>
