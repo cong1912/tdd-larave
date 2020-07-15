@@ -11,5 +11,10 @@
  <h1>showw</h1>
  <li>{{$project->title}}</li>
  <li>{{$project->description}}</li>
+
+@foreach($project->tasks as $tasks )
+    <div class="card mb-3">{{$tasks->body}}</div>
+@endforeach
+
 </body>
 </html>
