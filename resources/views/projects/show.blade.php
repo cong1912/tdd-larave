@@ -12,9 +12,14 @@
  <li>{{$project->title}}</li>
  <li>{{$project->description}}</li>
 
-@foreach($project->tasks as $tasks )
-    <div class="card mb-3">{{$tasks->body}}</div>
-@endforeach
-
+    @foreach($project->tasks as $tasks )
+        <div class="card mb-3">{{$tasks->body}}</div>
+        
+       
+    @endforeach
+    <form action="{{$project->path() . '/tasks'}}" method="POST">
+            @csrf
+            <input placeholder= "add a new tasks..." class="w-full" name="body">
+        </form>
 </body>
 </html>

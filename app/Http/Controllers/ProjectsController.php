@@ -23,11 +23,11 @@ class ProjectsController extends Controller
 
 
 
-        auth()->user()->projects()->create($attributes);
+       $project= auth()->user()->projects()->create($attributes);
 
 
 
-        return redirect('/projects');
+        return redirect($project->path());
     }
     public function show(\App\Project $project){
         if(auth()->user()->isNot($project->owner)){
