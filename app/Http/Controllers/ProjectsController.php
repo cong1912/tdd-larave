@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ProjectsController extends Controller
 {
     public function index(){
-        $projects= \App\Project::all();
+        $projects= auth()->user()->projects;
         return view('projects.index',compact('projects'));
     }
     public function store(){
@@ -30,7 +30,9 @@ class ProjectsController extends Controller
         return redirect('/projects');
     }
     public function show(\App\Project $project){
-
+        if(auth()->user()->isNot($project->owner)){
+            abort(403);
+        }
         return view('projects.show',compact('project'));
     }
 }
