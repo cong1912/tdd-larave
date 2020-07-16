@@ -19,6 +19,7 @@ class CreateProjectTable extends Migration
             $table->integer('owner_id')->unsigned();
             $table->string('title');
             $table->text('description');
+            $table->text('notes')->nullable();
             $table->timestamps();
 
 

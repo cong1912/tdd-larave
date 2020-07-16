@@ -28,5 +28,14 @@
             @csrf
             <input placeholder= "add a new tasks..." class="w-full" name="body">
         </form>
+    <form action="{{$project->path()}}" method="POST">
+
+        @csrf
+        @method('PATCH')
+
+        <textarea name="notes" placeholder="anything you want to make a note of?">{{$project->notes}}</textarea>
+
+        <button class="button" type="submit">Save</button>
+    </form>
 </body>
 </html>
