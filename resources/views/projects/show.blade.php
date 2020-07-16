@@ -13,8 +13,15 @@
  <li>{{$project->description}}</li>
 
     @foreach($project->tasks as $tasks )
-        <div class="card mb-3">{{$tasks->body}}</div>
-        
+        <div class="card mb-3">
+            <form method="POST" action="{{ $tasks->path()}}">
+            @method('PATCH')
+            @csrf
+           <input name="body" value="{{$tasks->body}}" class="w-full">
+           <input name="completed" type="checkbox" onChange="this.form.submit()">
+               
+            </form>
+            </div>
        
     @endforeach
     <form action="{{$project->path() . '/tasks'}}" method="POST">
