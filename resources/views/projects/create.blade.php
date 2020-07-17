@@ -21,7 +21,15 @@
             <input type="text"  class="input" name="description" placeholder="">
         </div>
 
+
         <button type="submit">Tạo</button>
+        <div class="field">
+            @if($errors->any())
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            @endif
+        </div>
     </form>
 
 </body>

@@ -19,10 +19,10 @@
             @csrf
            <input name="body" value="{{$tasks->body}}" class="w-full">
            <input name="completed" type="checkbox" onChange="this.form.submit()">
-               
+
             </form>
             </div>
-       
+
     @endforeach
     <form action="{{$project->path() . '/tasks'}}" method="POST">
             @csrf
@@ -30,9 +30,9 @@
         </form>
     <form action="{{$project->path()}}" method="POST">
 
-        @csrf
-        @method('PATCH')
 
+        @method('PATCH')
+        @csrf
         <textarea name="notes" placeholder="anything you want to make a note of?">{{$project->notes}}</textarea>
 
         <button class="button" type="submit">Save</button>
