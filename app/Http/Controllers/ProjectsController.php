@@ -33,9 +33,8 @@ class ProjectsController extends Controller
         return view('projects.create');
     }
 
-    public function update(UpdateProjectRequest $request,Project $project){
-        $project->update($request->validated());
-        return redirect($project->path());
+    public function update(UpdateProjectRequest $request){
+        return redirect($request->save()->path());
     }
     public function edit(Project $project){
         return view('projects.edit',compact('project'));
