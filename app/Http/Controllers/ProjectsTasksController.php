@@ -26,11 +26,7 @@ class ProjectsTasksController extends Controller
 
         $task->update(request()->validate(['body'=>'required']));
 
-        $menthod= request('completed') ? 'complete':'incomplete';
-
-        $task->$menthod();
-
-
+        request('completed')? $task->complete():$task->incomplete();
 
         return redirect($project->path());
     }
