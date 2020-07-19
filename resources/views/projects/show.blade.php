@@ -36,6 +36,13 @@
         <textarea name="notes" placeholder="anything you want to make a note of?">{{$project->notes}}</textarea>
 
         <button class="button" type="submit">Save</button>
+
     </form>
+
+    <div>
+            @include("projects.activity.card")
+    </div>
+
+
 </body>
 </html>
