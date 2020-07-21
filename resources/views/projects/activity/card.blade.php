@@ -9,4 +9,11 @@
         @endforeach
 
     </ul>
+    <footer>
+        <form action="{{$project->path()}}" method="POST">
+            @method('DELETE')
+            @csrf
+            <button type="submit">Delete</button>
+        </form>
+    </footer>
 </div>

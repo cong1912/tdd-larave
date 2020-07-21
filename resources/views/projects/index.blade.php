@@ -11,9 +11,10 @@
     <h3> bỉbord</h3>
 <ul>
     @forelse($projects as $projects)
-        <li> <a href="{{$projects->path()}}">{{$projects->title}}</a></li>
-        <li>{{$projects->description}}</li>
-        @empty <li>no projects yet</li>
+        <div>
+            @include('$projects.card')
+        </div>
+    @empty <li>no projects yet</li>
     @endforelse
 </ul>
 </body>
