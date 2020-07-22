@@ -39,6 +39,17 @@ class ManageProjectsTest extends TestCase
             ->assertSee($attributes['notes']);
     }
     /** @test */
+    public function tasks_can_be_create_a_project(){
+        $this->signIn();
+        $attributes =factory(Project::class)->raw();
+        $attributes['tasks']=[
+            ['body'=>'Task 1'],
+            ['body'=>'Task 2']
+        ];
+        $this->post('/projects',$attributes);
+        $this->assertCount(2,Project::first()->tasks);
+    }
+    /** @test */
     function unauthorized_users_cannot_delete_projects()
     {
         $project= ProjectFactory::create();

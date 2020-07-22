@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Project;
 use Illuminate\Http\Request;
+use function GuzzleHttp\Promise\task;
 
 
 class ProjectsController extends Controller
@@ -14,9 +15,12 @@ class ProjectsController extends Controller
     }
 
     public function store(){
-
-
         $project= auth()->user()->projects()->create($this->validateRequest());
+        if (\request()->has('tasks')){
+            foreach (\request('tasks') as $tasks){
+                $project->addTask($tasks['body']);
+            }
+        }
         return redirect($project->path());
     }
 

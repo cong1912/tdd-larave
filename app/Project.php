@@ -25,6 +25,17 @@ class Project extends Model
     return $this->hasMany(Task::class);
     }
     /**
+     *Add task to project
+     *
+     * @param  array $tasks
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function addTasks($tasks)
+    {
+        return $this->tasks()->createMany($tasks);
+    }
+
+    /**
     *Add task to project
      *
      * @param  string $body
@@ -34,6 +45,8 @@ class Project extends Model
     {
         return $this->tasks()->create(compact('body'));
     }
+
+
 
     public function invite(User $user)
     {
