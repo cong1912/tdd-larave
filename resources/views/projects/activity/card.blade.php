@@ -9,6 +9,7 @@
         @endforeach
 
     </ul>
+    @can('manage',$project)
     <footer>
         <form action="{{$project->path()}}" method="POST">
             @method('DELETE')
@@ -16,4 +17,5 @@
             <button type="submit">Delete</button>
         </form>
     </footer>
+    @endcan
 </div>
